@@ -184,9 +184,23 @@ class TestPalLinetype:
             assert isinstance(t, str)
 
     def test_known_values(self):
+        # R-gold: scales/R/pal-linetype.R returns hex strings (Richard
+        # Pearson 13-pattern set), not matplotlib names.  Previously
+        # this asserted ["solid", "dashed", "dotted"] — the 6 mpl names
+        # were a Py-side approximation that capped scale_linetype at 6
+        # levels and lost R's hex encoding (see r2py-toolkit B7 audit).
         p = scales.pal_linetype()
         types = p(3)
-        assert types == ["solid", "dashed", "dotted"]
+        assert types == ["solid", "22", "42"]
+
+    def test_all_13_match_R(self):
+        """R `pal_linetype()(13)` returns exactly these 13 hex patterns."""
+        p = scales.pal_linetype()
+        assert p(13) == [
+            "solid", "22", "42", "44", "13", "1343",
+            "73", "2262", "12223242", "F282",
+            "F4448444", "224282F2", "F1",
+        ]
 
 
 # ---------------------------------------------------------------------------

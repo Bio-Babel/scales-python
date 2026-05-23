@@ -267,16 +267,21 @@ _DICHROMAT_SCHEMES: dict[str, list[str]] = {
 }
 
 # ---------------------------------------------------------------------------
-# Linetype values (matching R linetype names)
+# Linetype values — R-gold, verbatim from scales/R/pal-linetype.R:7-21.
 # ---------------------------------------------------------------------------
+# Richard Pearson's 13-pattern set: 1 solid + 12 hex dash patterns.
+# Each hex string is parsed by grid_py._lty.resolve_lty as a low-to-high
+# nibble sequence (e.g. "F4448444" → 15 on, 4 off, 4 on, 4 off, 8 on,
+# 4 off, 4 on, 4 off).  Earlier versions used 6 matplotlib-style names
+# (dashed/dotted/...), which (a) capped scale_linetype at 6 levels vs
+# R's 13, and (b) lost R's hex encoding — see r2py-toolkit/b7_repros_tmp
+# for the audit that motivated this fix.
 
 _LINETYPES: list[str] = [
     "solid",
-    "dashed",
-    "dotted",
-    "dotdash",
-    "longdash",
-    "twodash",
+    "22", "42", "44", "13", "1343",
+    "73", "2262", "12223242", "F282",
+    "F4448444", "224282F2", "F1",
 ]
 
 # ---------------------------------------------------------------------------
