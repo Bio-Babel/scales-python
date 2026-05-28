@@ -39,11 +39,43 @@ __all__ = [
 
 def _simplicity(q_idx: int, n_Q: int, j: int, lmin: float, lmax: float,
                 lstep: float) -> float:
-    """Simplicity score for a candidate labelling."""
-    # Whether the label sequence includes zero
-    v = 1.0 if ((lmin <= 0 <= lmax) or
-                 (lmin >= 0 >= lmax)) else 0.0
-    return 1.0 - (q_idx / (n_Q - 1.0)) - j + v if n_Q > 1 else 1.0 - j + v
+    """Simplicity score for a candidate labelling.
+
+    Port of R ``labeling:::.simplicity`` (the labeling package used
+    internally by ``scales::extended_breaks``)::
+
+        eps <- .Machine$double.eps * 100
+        v   <- ifelse((lmin %% lstep < eps ||
+                       lstep - (lmin %% lstep) < eps)
+                      && lmin <= 0 && lmax >= 0, 1, 0)
+        1 - (i - 1)/(n - 1) - j + v
+
+    R rewards a candidate sequence with ``v = 1`` only when **both**
+    conditions hold:
+
+    1. The sequence is aligned to zero — ``lmin`` is an integer
+       multiple of ``lstep`` (modulo numerical noise).
+    2. The interval ``[lmin, lmax]`` covers zero.
+
+    The earlier port checked condition (2) only.  That made every
+    range-crossing-zero candidate tied on the simplicity axis, even
+    when the candidate's actual labels did NOT include zero (e.g.
+    ``[-1.5, -0.5, 0.5, 1.5, 2.5]`` over data ``[-1.5, 2.5]``).  R's
+    extra alignment check picks the zero-anchored sequence
+    ``[-1, 0, 1, 2]`` over the half-step one — Python was choosing the
+    half-step variant.  Restoring the alignment check brings break
+    selection back into byte-for-byte parity with R's reference.
+    """
+    eps = np.finfo(float).eps * 100
+    if lstep == 0:
+        aligned = False
+    else:
+        mod = lmin % lstep
+        aligned = (mod < eps) or (lstep - mod < eps)
+    v = 1.0 if (aligned and lmin <= 0 <= lmax) else 0.0
+    if n_Q > 1:
+        return 1.0 - (q_idx / (n_Q - 1.0)) - j + v
+    return 1.0 - j + v
 
 
 def _simplicity_max(q_idx: int, n_Q: int, j: int) -> float:
@@ -75,15 +107,42 @@ def _coverage(dmin: float, dmax: float, lmin: float, lmax: float) -> float:
 def _coverage_max(dmin: float, dmax: float, span: float) -> float:
     """Upper bound on coverage for a given label span.
 
-    R (labeling::.coverage.max) uses the same ``0.1 * range``
-    denominator as :func:`_coverage`.
+    Port of R ``labeling:::.coverage.max``::
+
+        range <- dmax - dmin
+        if (span > range) {
+            half <- (span - range)/2
+            1 - 0.5 * (half^2 + half^2)/((0.1 * range)^2)
+        } else 1
+
+    Key derivation
+    --------------
+    The bound is the *best* coverage achievable when the label span
+    exceeds the data span by ``Δ = span - range``.  In that best case
+    the labels are **centred** on the data so each side overshoots by
+    ``Δ/2``.  R sums the squared overshoots ``(Δ/2)² + (Δ/2)² = Δ²/2``
+    and multiplies by the global ``0.5`` factor: ``penalty = Δ²/4``.
+
+    The earlier Python port wrote::
+
+        1 - 0.5 * (span - data_range) ** 2 / tenth ** 2
+
+    which is the **worst-case** (all overshoot on one side)
+    ``penalty = Δ²/2`` — exactly twice R's value.  An upper bound has
+    to be optimistic (best-case) so candidates aren't pruned
+    prematurely; with the 2× penalty Python's outer ``while`` loop
+    was breaking out early on perfectly good sequences (e.g. dropping
+    ``[0, 2.5, 5, 7.5, 10]`` over data ``[1, 9]`` in favour of
+    ``[0, 2, 4, 6, 8]``).  Restoring R's ``half^2 + half^2`` form
+    matches R's reference exactly.
     """
     data_range = dmax - dmin
     if data_range < 1e-100:
         return 1.0
     if span >= data_range:
+        half = (span - data_range) / 2.0
         tenth = 0.1 * data_range
-        return 1.0 - 0.5 * ((span - data_range) ** 2) / (tenth ** 2)
+        return 1.0 - 0.5 * (half ** 2 + half ** 2) / (tenth ** 2)
     return 1.0
 
 
