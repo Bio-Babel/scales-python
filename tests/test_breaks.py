@@ -98,8 +98,9 @@ class TestBreaksWidth:
     def test_with_offset(self):
         b = scales.breaks_width(10, offset=5)
         result = b((0, 100))
-        # Breaks should be offset by 5
-        expected = np.arange(-5, 110, 10, dtype=float)
+        # R: breaks_width(10, 5)(c(0,100)) = fullseq([0,100],10) + 5
+        #    = [0,10,...,100] + 5 = [5,15,...,105]  (rigid shift, NOT re-bracketed)
+        expected = np.arange(5, 110, 10, dtype=float)
         np.testing.assert_allclose(result, expected)
 
     def test_fractional_width(self):
@@ -187,23 +188,16 @@ class TestBreaksTimespan:
 # ---------------------------------------------------------------------------
 
 class TestMinorBreaksN:
-    def test_2_between_each_pair(self):
-        mb = scales.minor_breaks_n(2)
-        result = mb([0, 5, 10], (0, 10))
-        # Should return minor breaks between major pairs
-        assert len(result) > 0
-        # All minor breaks should be within the range
-        assert np.all(result >= 0)
-        assert np.all(result <= 10)
-
-    def test_1_between_each_pair(self):
-        mb = scales.minor_breaks_n(1)
-        result = mb([0, 10], (0, 10))
-        assert len(result) >= 1
+    # R "new" 2-arg interface: minor_breaks_n(n)(range, breaks).
+    def test_points_per_segment(self):
+        mb = scales.minor_breaks_n(3)
+        # R: minor_breaks_n(3)(c(0,10), c(0,5,10)) -> 0 2.5 5 7.5 10
+        result = mb((0, 10), [0, 5, 10])
+        np.testing.assert_allclose(result, [0, 2.5, 5, 7.5, 10])
 
     def test_returns_array(self):
         mb = scales.minor_breaks_n(2)
-        result = mb([0, 5, 10], (0, 10))
+        result = mb((0, 10), [0, 5, 10])
         assert isinstance(result, np.ndarray)
 
 
@@ -214,15 +208,19 @@ class TestMinorBreaksN:
 class TestMinorBreaksWidth:
     def test_fixed_width(self):
         mbw = scales.minor_breaks_width(2.5)
-        result = mbw([0, 5, 10], (0, 10))
-        np.testing.assert_allclose(result, [0, 2.5, 5, 7.5, 10])
+        # R: minor_breaks_width(2.5, 0)(c(0,10), c(0,5,10))
+        result = mbw((0, 10), [0, 5, 10])
+        np.testing.assert_allclose(
+            np.sort(result),
+            [-1.25, 0, 1.25, 2.5, 5, 7.5, 8.75, 10, 11.25],
+        )
 
     def test_returns_array(self):
         mbw = scales.minor_breaks_width(1)
-        result = mbw([0, 5, 10], (0, 10))
+        result = mbw((0, 10), [0, 5, 10])
         assert isinstance(result, np.ndarray)
 
     def test_small_width(self):
         mbw = scales.minor_breaks_width(0.5)
-        result = mbw([0, 2], (0, 2))
+        result = mbw((0, 2), [0, 1, 2])
         assert len(result) >= 4

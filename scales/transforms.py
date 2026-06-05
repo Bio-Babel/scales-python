@@ -169,7 +169,8 @@ class Transform:
     breaks_func : callable
         Function ``(limits) -> array`` that generates axis breaks.
     minor_breaks_func : callable or None
-        Function for generating minor breaks.
+        Function for generating minor breaks.  When ``None``, defaults to
+        ``regular_minor_breaks()`` (mirrors R ``scales::new_transform``).
     format_func : callable
         Label formatter ``(x) -> list[str]``.
     domain : tuple of float
@@ -206,7 +207,15 @@ class Transform:
         self.d_transform = d_transform
         self.d_inverse = d_inverse
         self.breaks_func = breaks_func if breaks_func is not None else _pretty_breaks(5)
-        self.minor_breaks_func = minor_breaks_func
+        # R: new_transform(..., minor_breaks = regular_minor_breaks()).  Every
+        # transform that does not override this gets regular_minor_breaks(); see
+        # scales::new_transform's default arg.  Mirror that here so continuous
+        # scales (incl. coord_polar/coord_radial r scales) surface minor breaks.
+        self.minor_breaks_func = (
+            minor_breaks_func
+            if minor_breaks_func is not None
+            else regular_minor_breaks()
+        )
         self.format_func = format_func if format_func is not None else _default_format()
         self.domain = (float(domain[0]), float(domain[1]))
 

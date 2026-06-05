@@ -252,6 +252,13 @@ def fullseq(
     if not np.isfinite(size) or size <= 0:
         raise ValueError("size must be a positive finite number")
 
+    # R fullseq.numeric (R/full-seq.R): sort the range first, and for a
+    # zero-width range return a single size-wide cell straddling the point
+    # (`range + size * c(-1, 1) / 2`).
+    range = np.sort(range)
+    if zero_range(range):
+        return range + size * np.array([-1.0, 1.0]) / 2.0
+
     lo = np.floor(range[0] / size) * size
     hi = np.ceil(range[1] / size) * size
 

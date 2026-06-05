@@ -25,23 +25,36 @@ from scales.breaks_log import (
 # ---------------------------------------------------------------------------
 
 class TestMinorBreaksN:
-    def test_basic(self):
-        fn = minor_breaks_n(n=4)
-        result = fn(np.array([0, 10, 20]), np.array([0, 20]), 4)
-        assert len(result) > 0
-        # All minor breaks should be within limits
-        assert np.all(result >= 0)
-        assert np.all(result <= 20)
+    # R "new" 2-arg interface: minor_breaks_n(n)(range, breaks); n is the
+    # number of points spanning each inter-break segment (endpoints included).
+    def test_exact_r_values(self):
+        # R: minor_breaks_n(4)(c(0,20), c(0,10,20))
+        fn = minor_breaks_n(4)
+        result = fn(np.array([0, 20]), np.array([0, 10, 20]))
+        np.testing.assert_allclose(
+            result, [0, 10 / 3, 20 / 3, 10, 40 / 3, 50 / 3, 20]
+        )
 
-    def test_fewer_than_two_majors(self):
-        fn = minor_breaks_n(n=4)
-        result = fn(np.array([5]), np.array([0, 10]), 4)
-        assert len(result) == 0
+    def test_range_overruns_breaks_edge_segments(self):
+        # R: minor_breaks_n(3)(c(-3,13), c(0,5,10)) — edge segments included.
+        fn = minor_breaks_n(3)
+        result = fn(np.array([-3, 13]), np.array([0, 5, 10]))
+        np.testing.assert_allclose(
+            result, [-3, -1.5, 0, 2.5, 5, 7.5, 10, 11.5, 13]
+        )
 
-    def test_default_n_minor(self):
-        fn = minor_breaks_n(n=2)
-        result = fn(np.array([0, 10]), np.array([0, 10]))
-        assert len(result) > 0
+    def test_single_major(self):
+        # R: minor_breaks_n(4)(c(0,10), c(5)) — two edge segments.
+        fn = minor_breaks_n(4)
+        result = fn(np.array([0, 10]), np.array([5]))
+        np.testing.assert_allclose(
+            result, [0, 5 / 3, 10 / 3, 5, 20 / 3, 25 / 3, 10]
+        )
+
+    def test_returns_array(self):
+        fn = minor_breaks_n(2)
+        result = fn(np.array([0, 10]), np.array([0, 5, 10]))
+        assert isinstance(result, np.ndarray)
 
 
 # ---------------------------------------------------------------------------
@@ -49,15 +62,20 @@ class TestMinorBreaksN:
 # ---------------------------------------------------------------------------
 
 class TestMinorBreaksWidth:
-    def test_basic(self):
+    def test_exact_r_values(self):
+        # R: minor_breaks_width(2.5, 0)(c(0,20), c(0,10,20)).  Edge segments
+        # [0,0]/[20,20] straddle via breaks_width's zero_range branch.
         fn = minor_breaks_width(2.5)
-        result = fn(np.array([0, 10, 20]), np.array([0, 20]), 5)
-        assert len(result) > 0
+        result = fn(np.array([0, 20]), np.array([0, 10, 20]))
+        np.testing.assert_allclose(
+            result,
+            [-1.25, 1.25, 0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20, 18.75, 21.25],
+        )
 
-    def test_with_offset(self):
-        fn = minor_breaks_width(5, offset=1)
-        result = fn(np.array([0, 10]), np.array([0, 10]), 5)
-        assert len(result) > 0
+    def test_returns_array(self):
+        fn = minor_breaks_width(1)
+        result = fn(np.array([0, 10]), np.array([0, 5, 10]))
+        assert isinstance(result, np.ndarray)
 
 
 # ---------------------------------------------------------------------------
@@ -81,9 +99,13 @@ class TestRegularMinorBreaks:
         assert len(result) == 0
 
     def test_n_zero(self):
+        # R parity: regular_minor_breaks()(c(0,10), c(0,10), 0) -> 10.
+        # `seq(0, 10, length.out = 1)[-1]` is empty for the single interval,
+        # then the final major (10) is re-appended.  (R returns the last
+        # major, NOT an empty vector — there is no `n < 1` short-circuit.)
         fn = regular_minor_breaks()
         result = fn(np.array([0, 10]), np.array([0, 10]), 0)
-        assert len(result) == 0
+        np.testing.assert_allclose(result, [10.0])
 
     def test_n_one(self):
         # R's regular_minor_breaks(reverse=FALSE)(c(0, 10), c(0, 10), n=1)
@@ -103,6 +125,45 @@ class TestRegularMinorBreaks:
         result = fn(np.array([0, 10, 20]), np.array([0, 20]), 3)
         # Result should still be sorted (just negated and reversed back)
         assert len(result) > 0
+
+    # ---- R-parity regression: descending b (the reversed-scale pipeline) ----
+    # These pin the *exact* R scales::regular_minor_breaks output.  Before the
+    # order-sensitivity fix, the function sorted ``b`` ascending and produced a
+    # different (truncated) extension on reversed scales.
+
+    def test_nonreverse_exact_r_values(self):
+        # R: regular_minor_breaks()(c(0,5,10), c(0,10), 2) -> 0 2.5 5 7.5 10
+        fn = regular_minor_breaks()
+        result = fn(np.array([0, 5, 10]), np.array([0, 10]), 2)
+        np.testing.assert_allclose(result, [0.0, 2.5, 5.0, 7.5, 10.0])
+
+    def test_reverse_descending_extends_high_side(self):
+        # The reversed-scale pipeline passes b DESCENDING.  With limits that
+        # overrun the top major (37 > 30), R extends toward the high side:
+        # R: regular_minor_breaks(reverse=TRUE)(c(30,20,10), c(8,37), 2)
+        #    -> 40 35 30 25 20 15 10 5 0   (raw, before ggplot2's discard)
+        fn = regular_minor_breaks(reverse=True)
+        result = fn(np.array([30, 20, 10]), np.array([8, 37]), 2)
+        np.testing.assert_allclose(
+            result, [40, 35, 30, 25, 20, 15, 10, 5, 0]
+        )
+
+    def test_reverse_descending_matches_r_n3(self):
+        # R: regular_minor_breaks(reverse=TRUE)(c(20,10,0), c(0,20), 3)
+        #    -> 20 16.6667 13.3333 10 6.6667 3.3333 0
+        fn = regular_minor_breaks(reverse=True)
+        result = fn(np.array([20, 10, 0]), np.array([0, 20]), 3)
+        np.testing.assert_allclose(
+            result,
+            [20, 50 / 3, 40 / 3, 10, 20 / 3, 10 / 3, 0],
+        )
+
+    def test_no_internal_sort_preserves_caller_order(self):
+        # R never sorts b; descending input yields descending output.
+        fn = regular_minor_breaks(reverse=True)
+        result = fn(np.array([20, 10, 0]), np.array([0, 20]), 2)
+        # strictly decreasing
+        assert np.all(np.diff(result) < 0)
 
 
 # ===========================================================================

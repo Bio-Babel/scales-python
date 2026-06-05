@@ -172,7 +172,8 @@ class TestBreaksWidth:
     def test_with_offset(self):
         brk = breaks_width(width=5, offset=2)
         result = brk([0, 20])
-        assert len(result) > 0
+        # R: breaks_width(5, 2)(c(0,20)) = [0,5,10,15,20] + 2
+        np.testing.assert_allclose(result, [2, 7, 12, 17, 22])
 
     def test_empty(self):
         brk = breaks_width(width=5)

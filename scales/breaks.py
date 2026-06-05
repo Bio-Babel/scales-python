@@ -20,6 +20,8 @@ from typing import Any, Callable, Optional, Sequence, Tuple, Union
 import numpy as np
 from numpy.typing import ArrayLike
 
+from ._utils import fullseq
+
 __all__ = [
     "breaks_extended",
     "breaks_pretty",
@@ -456,7 +458,7 @@ def breaks_pretty(n: int = 5) -> Callable[[ArrayLike, Optional[int]], np.ndarray
 
 def breaks_width(
     width: float,
-    offset: float = 0,
+    offset: Union[float, ArrayLike] = 0,
 ) -> Callable[[ArrayLike, Optional[int]], np.ndarray]:
     """
     Create a break function with fixed-width intervals.
@@ -465,8 +467,10 @@ def breaks_width(
     ----------
     width : float
         Distance between consecutive breaks.
-    offset : float, optional
-        Shift all breaks by this amount (default 0).
+    offset : float or array-like, optional
+        Rigidly shift the whole grid by this amount (default 0), mirroring R's
+        ``breaks_width`` (``fullseq`` then ``offset_by``).  A vector is allowed;
+        R applies each element sequentially, so the net shift is their sum.
 
     Returns
     -------
@@ -488,16 +492,17 @@ def breaks_width(
         x = x[np.isfinite(x)]
         if len(x) == 0:
             return np.array([])
-        dmin, dmax = float(x.min()), float(x.max())
-
-        # Shift by offset, compute grid, shift back
-        lo = math.floor((dmin - offset) / width) * width + offset
-        hi = math.ceil((dmax - offset) / width) * width + offset
-
-        result = np.arange(lo, hi + width * 0.5, width)
-        # Clean up floating-point dust
-        result = np.round(result, decimals=10)
-        return result
+        # R breaks_width(width, offset)(x) = fullseq(x, width), then offset_by
+        # for each offset element (offset_by.numeric(x, by) = x + by).  i.e.
+        # build the multiples-of-width grid covering the range, THEN translate
+        # the whole grid by sum(offset).  Translating AFTER gridding (rather
+        # than re-bracketing on an offset lattice) is what matches R: a non-zero
+        # offset rigidly shifts the breaks and may move them past a range edge.
+        # fullseq() also supplies R's zero-width-range straddle.
+        grid = fullseq(np.array([float(x.min()), float(x.max())]), width)
+        grid = grid + float(np.sum(np.atleast_1d(offset)))
+        # Clean up floating-point dust.
+        return np.round(grid, decimals=10)
 
     return breaks_fn
 
