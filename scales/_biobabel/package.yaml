@@ -1,0 +1,60 @@
+schema_version: 1
+repo: https://github.com/Bio-Babel/scales-python
+distribution: scales-python
+import_name: scales
+display_name: scales-python — axis transforms, breaks, palettes, formatters (R scales port)
+contract_class: grammar
+tier: 1
+maturity: beta
+r_package:
+  package: scales
+  repo: https://github.com/r-lib/scales
+  version_or_commit: 1.4.0.9000
+  fidelity: full
+capabilities:
+- axis-transforms
+- tick-breaks
+- axis-label-formatters
+- color-palettes
+- continuous-discrete-ranges
+- color-manipulation
+domain_tags:
+- visualization
+- low-level-graphics
+task_tags:
+- log-axis
+- percent-axis
+- dollar-axis
+- viridis-palette
+- colorbrewer-palette
+- pretty-tick-marks
+- custom-tick-marks
+foundation: []
+triggers:
+- log axis
+- format axis labels as percent / dollar / scientific
+- viridis colors
+- colorbrewer palette
+- axis tick mark positions
+not_when:
+- user already uses matplotlib's ticker and is happy with it
+templates:
+- id: scales.log_axis_with_breaks
+  path: templates/log_axis.py
+  task_tags:
+  - log-axis
+  - pretty-tick-marks
+  description: log10 transform + breaks_log + label_log applied to a numeric vector.
+  parameters: []
+  code_template: ''
+  expected_artifacts: []
+  notes: []
+- id: scales.viridis_swatch
+  path: templates/viridis_swatch.py
+  task_tags:
+  - viridis-palette
+  description: pal_viridis sampled at 8 positions; emit hex codes.
+  parameters: []
+  code_template: ''
+  expected_artifacts: []
+  notes: []
