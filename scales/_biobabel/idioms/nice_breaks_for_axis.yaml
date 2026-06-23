@@ -1,0 +1,29 @@
+id: scales.nice_breaks_for_axis
+name: "Adaptive breaks — pass a breaks callable, not fixed positions"
+applicable_to:
+  - scales.Transform
+description: |
+  Every `breaks_*` factory returns a *callable* `(limits) -> positions` that
+  recomputes tick locations from whatever range the axis ends up with. Pick by
+  need:
+
+  - `breaks_extended(n=5)` — Wilkinson "extended" algorithm; the default for a
+    plain linear axis. Aims for ~n round breaks covering the range.
+  - `breaks_pretty(n=5)` — R's `pretty()`; very round numbers.
+  - `breaks_width(width, offset=0)` — fixed step (e.g. every 25 units, or
+    "1 month" via `date_breaks`).
+  - `breaks_log(n=5, base=10)` — integer powers of the base for log axes.
+
+  Hand it to a scale via `breaks=` — do NOT hard-code a Python list (see the
+  anti-pattern `scales.static_breaks_when_callable_expected`).
+code_template: |
+  from scales import breaks_extended, breaks_pretty, breaks_width
+
+  breaks_pretty(n=5)([0, 10])        # → [0, 2, 4, 6, 8, 10]
+  breaks_width(25)([0, 100])         # → [0, 25, 50, 75, 100]
+  breaks_extended(n=5)([0, 100])     # → ~5 round breaks spanning 0..100
+
+  # In a ggplot2_py scale, pass the callable (it adapts to the trained range):
+  # gg.scale_y_continuous(breaks=breaks_extended(n=6))
+anti_pattern_paired: scales.static_breaks_when_callable_expected
+typical_use_case: "choosing tick positions for a continuous (linear, log, or date) axis"

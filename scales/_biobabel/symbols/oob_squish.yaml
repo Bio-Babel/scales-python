@@ -1,0 +1,31 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.oob_squish.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.oob_squish
+import_path: scales.oob_squish
+kind: function
+signature: 'oob_squish(x: ''Union[np.ndarray, list, float]'', range: ''_RangeLike''
+  = (0, 1)) -> ''np.ndarray'''
+purpose: Squish (clamp) out-of-bounds values to range limits.
+description: Squish (clamp) out-of-bounds values to range limits.
+parameters:
+- name: x
+  type: Union[np.ndarray, list, float]
+  required: true
+  default: null
+- name: range
+  type: _RangeLike
+  required: false
+  default: (0, 1)
+mutates: ''
+returns: np.ndarray
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

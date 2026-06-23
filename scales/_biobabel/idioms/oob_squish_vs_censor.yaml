@@ -1,0 +1,28 @@
+id: scales.oob_squish_vs_censor
+name: "Keep or drop out-of-range data — squish vs the default censor"
+applicable_to:
+  - scales.OutOfBounds
+description: |
+  Setting `limits` on a continuous scale does NOT clip — it triggers an
+  out-of-bounds (oob) policy on values outside the range. The default is
+  `oob_censor`, which maps them to NaN and ggplot then drops them *silently*.
+  This is the usual cause of "my points/cells disappeared after I set limits".
+
+  - Want boundary points to vanish (true clipping)?  Keep the default
+    `censor` / `oob_censor` (out-of-range → NaN).
+  - Want them clamped to the nearest limit so the color/extent saturates
+    instead of disappearing?  Use `squish` / `oob_squish`.
+
+  These are *direct* functions `(x, range) -> array` (not factories), and they
+  run before the transform. `rescale(x, to, from_range)` is the underlying
+  primitive that maps data onto `[0, 1]` for a palette.
+code_template: |
+  from scales import censor, squish, rescale
+
+  censor([-1, 0.5, 2], (0, 1))   # → [nan, 0.5, nan]   (default: drops OOB)
+  squish([-1, 0.5, 2], (0, 1))   # → [0.0, 0.5, 1.0]   (clamps to limits)
+  rescale([0, 5, 10], to=(0, 1)) # → [0.0, 0.5, 1.0]   (map data → [0,1])
+
+  # In ggplot2_py, opt into clamping so saturated values stay visible:
+  # gg.scale_fill_gradient(limits=(0, 1), oob=squish)
+typical_use_case: "a continuous color/size/axis scale with explicit limits, where boundary data should saturate rather than disappear"

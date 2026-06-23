@@ -3,7 +3,7 @@ name: Calling the palette factory and passing the factory itself, not its result
 applicable_to:
   - scales.Palette
 detection:
-  regex: 'pal_(?:viridis|brewer|seq_gradient|div_gradient|hue|grey)\s*\(\s*\)(?!\s*\()'
+  regex: '(?:pal_(?:viridis|brewer|seq_gradient|div_gradient|hue|grey)|(?:viridis|brewer|seq_gradient|div_gradient|hue|grey)_pal)\s*\(\s*\)(?!\s*\()'
   static_only: true
 why_bad: |
   `pal_viridis()` returns a *callable*, not a list of colors. Passing it

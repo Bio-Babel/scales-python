@@ -1,0 +1,57 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.col_quantile.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.col_quantile
+import_path: scales.col_quantile
+kind: function
+signature: 'col_quantile(palette: ''Union[str, Sequence[str]]'', domain: ''Optional[ArrayLike]''
+  = None, n: ''int'' = 4, probs: ''Optional[Sequence[float]]'' = None, na_color: ''str''
+  = ''#808080'', alpha: ''bool'' = False, reverse: ''bool'' = False, right: ''bool''
+  = False) -> ''Callable[[ArrayLike], List[str]]'''
+purpose: Map quantile-based bins to colours.
+description: Map quantile-based bins to colours.
+parameters:
+- name: palette
+  type: Union[str, Sequence[str]]
+  required: true
+  default: null
+- name: domain
+  type: Optional[ArrayLike]
+  required: false
+  default: null
+- name: n
+  type: int
+  required: false
+  default: 4
+- name: probs
+  type: Optional[Sequence[float]]
+  required: false
+  default: null
+- name: na_color
+  type: str
+  required: false
+  default: '#808080'
+- name: alpha
+  type: bool
+  required: false
+  default: false
+- name: reverse
+  type: bool
+  required: false
+  default: false
+- name: right
+  type: bool
+  required: false
+  default: false
+mutates: ''
+returns: Callable[[ArrayLike], List[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

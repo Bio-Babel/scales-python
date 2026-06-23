@@ -1,0 +1,26 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.timespan_trans.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.timespan_trans
+import_path: scales.timespan_trans
+kind: function
+signature: 'timespan_trans(unit: ''str'' = ''secs'') -> ''Transform'''
+purpose: Transform between ``timedelta64`` and numeric.
+description: Transform between ``timedelta64`` and numeric.
+parameters:
+- name: unit
+  type: str
+  required: false
+  default: secs
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

@@ -1,0 +1,35 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.pal_gradient_n.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.pal_gradient_n
+import_path: scales.pal_gradient_n
+kind: function
+signature: 'pal_gradient_n(colours: ''Sequence[str]'', values: ''Optional[Sequence[float]]''
+  = None, space: ''str'' = ''Lab'') -> ''ContinuousPalette'''
+purpose: Gradient through *n* colours, interpolated in CIELAB colour space.
+description: Gradient through *n* colours, interpolated in CIELAB colour space.
+parameters:
+- name: colours
+  type: Sequence[str]
+  required: true
+  default: null
+- name: values
+  type: Optional[Sequence[float]]
+  required: false
+  default: null
+- name: space
+  type: str
+  required: false
+  default: Lab
+mutates: ''
+returns: ContinuousPalette
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

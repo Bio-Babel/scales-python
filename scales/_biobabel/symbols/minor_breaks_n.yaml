@@ -1,0 +1,27 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.minor_breaks_n.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.minor_breaks_n
+import_path: scales.minor_breaks_n
+kind: function
+signature: 'minor_breaks_n(n: ''int'' = 2) -> ''Callable[[np.ndarray, np.ndarray],
+  np.ndarray]'''
+purpose: Minor breaks with a fixed number of points per segment.
+description: Minor breaks with a fixed number of points per segment.
+parameters:
+- name: n
+  type: int
+  required: false
+  default: 2
+mutates: ''
+returns: Callable[[np.ndarray, np.ndarray], np.ndarray]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

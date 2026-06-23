@@ -1,0 +1,52 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.scientific.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.scientific
+import_path: scales.scientific
+kind: function
+signature: 'scientific(x: ''ArrayLike'', digits: ''int'' = 3, scale: ''float'' = 1,
+  prefix: ''str'' = '''', suffix: ''str'' = '''', decimal_mark: ''Optional[str]''
+  = None, trim: ''bool'' = True) -> ''list[str]'''
+purpose: Format *x* in scientific notation.
+description: Format *x* in scientific notation.
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: digits
+  type: int
+  required: false
+  default: 3
+- name: scale
+  type: float
+  required: false
+  default: 1
+- name: prefix
+  type: str
+  required: false
+  default: ''
+- name: suffix
+  type: str
+  required: false
+  default: ''
+- name: decimal_mark
+  type: Optional[str]
+  required: false
+  default: null
+- name: trim
+  type: bool
+  required: false
+  default: true
+mutates: ''
+returns: list[str]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

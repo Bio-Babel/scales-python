@@ -22,6 +22,7 @@ description: 'A bijective function pairing forward (`transform`) and inverse (`i
 invariants:
 - '`inverse(transform(x)) == x` to machine precision for every x in the domain.'
 - domain endpoints (and their image under transform) must be finite — log_trans's domain excludes 0 and negatives.
+- '`log_trans`/`log10_trans`/`log2_trans` have domain `(0, inf)`: non-positive input maps to NaN, which the scale''s default `oob_censor` then silently drops. A log axis on data containing 0 or negatives therefore loses those points with no error or warning. For data that spans zero or negatives (e.g. log-fold-changes, signed magnitudes) use `pseudo_log_trans(sigma=1)` or `asinh_trans(sigma=1)`, which are well-defined over the entire real line.'
 - A scale that uses a Transform inherits the Transform's `breaks` and `format` defaults; user-supplied values override.
 mental_model: 'For R users:
 

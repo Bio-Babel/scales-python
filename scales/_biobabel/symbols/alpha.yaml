@@ -1,0 +1,31 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.alpha.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.alpha
+import_path: scales.alpha
+kind: function
+signature: 'alpha(colour: ''Union[str, Sequence[str]]'', alpha_value: ''Union[None,
+  float, Sequence[Optional[float]]]'' = None) -> ''Union[str, List[str]]'''
+purpose: Modify the alpha transparency of colour(s).
+description: Modify the alpha transparency of colour(s).
+parameters:
+- name: colour
+  type: Union[str, Sequence[str]]
+  required: true
+  default: null
+- name: alpha_value
+  type: Union[None, float, Sequence[Optional[float]]]
+  required: false
+  default: null
+mutates: ''
+returns: Union[str, List[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

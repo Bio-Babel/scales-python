@@ -1,0 +1,30 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.comma.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.comma
+import_path: scales.comma
+kind: function
+signature: 'comma(x: ''ArrayLike'', **kwargs: ''Any'') -> ''list[str]'''
+purpose: Format *x* with comma thousands separator.
+description: Format *x* with comma thousands separator.
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: kwargs
+  type: Any
+  required: true
+  default: null
+mutates: ''
+returns: list[str]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

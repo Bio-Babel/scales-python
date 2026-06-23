@@ -1,0 +1,39 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.col_mix.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.col_mix
+import_path: scales.col_mix
+kind: function
+signature: 'col_mix(a: ''str'', b: ''str'', amount: ''float'' = 0.5, space: ''str''
+  = ''rgb'') -> ''str'''
+purpose: Mix two colours.
+description: Mix two colours.
+parameters:
+- name: a
+  type: str
+  required: true
+  default: null
+- name: b
+  type: str
+  required: true
+  default: null
+- name: amount
+  type: float
+  required: false
+  default: 0.5
+- name: space
+  type: str
+  required: false
+  default: rgb
+mutates: ''
+returns: str
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

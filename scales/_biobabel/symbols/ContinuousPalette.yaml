@@ -1,0 +1,35 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.ContinuousPalette.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.ContinuousPalette
+import_path: scales.ContinuousPalette
+kind: class
+signature: 'ContinuousPalette(fun: ''Callable[..., Any]'', type: ''str'', na_safe:
+  ''Optional[bool]'' = None) -> ''None'''
+purpose: A palette backed by a function mapping ``[0, 1]`` to colours/values.
+description: A palette backed by a function mapping ``[0, 1]`` to colours/values.
+parameters:
+- name: fun
+  type: Callable[..., Any]
+  required: true
+  default: null
+- name: type
+  type: str
+  required: true
+  default: null
+- name: na_safe
+  type: Optional[bool]
+  required: false
+  default: null
+mutates: ''
+returns: None
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

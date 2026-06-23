@@ -1,0 +1,35 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.log_trans.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.log_trans
+import_path: scales.log_trans
+kind: function
+signature: 'log_trans(base: ''float'' = 2.718281828459045) -> ''Transform'''
+purpose: Logarithmic transform with arbitrary *base*.
+description: Logarithmic transform with arbitrary *base*.
+parameters:
+- name: base
+  type: float
+  required: false
+  default: 2.718281828459045
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples:
+- "log_trans(base=10).transform([1, 10, 100])  # → array([0., 1., 2.])  (base defaults to e)"
+failure_fixes:
+- when: Data points silently vanish, or NaN appears, on a log axis.
+  suggest:
+  - scales.pseudo_log_trans
+  - scales.asinh_trans
+  explanation: log_trans has domain (0, inf); non-positive input maps to NaN and is then dropped by the scale's default oob_censor. Use pseudo_log_trans(sigma=1) or asinh_trans for data that spans zero or negatives.
+related:
+- scales.log10_trans
+- scales.breaks_log
+- scales.pseudo_log_trans

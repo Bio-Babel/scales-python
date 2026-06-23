@@ -1,0 +1,62 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.Transform.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.Transform
+import_path: scales.Transform
+kind: class
+signature: 'Transform(name: ''str'', transform_func: ''Callable'', inverse_func: ''Callable'',
+  d_transform: ''Optional[Callable]'' = None, d_inverse: ''Optional[Callable]'' =
+  None, breaks_func: ''Optional[Callable]'' = None, minor_breaks_func: ''Optional[Callable]''
+  = None, format_func: ''Optional[Callable]'' = None, domain: ''Tuple[float, float]''
+  = (-inf, inf)) -> ''None'''
+purpose: A scale transformation bundling forward/inverse functions and metadata.
+description: A scale transformation bundling forward/inverse functions and metadata.
+parameters:
+- name: name
+  type: str
+  required: true
+  default: null
+- name: transform_func
+  type: Callable
+  required: true
+  default: null
+- name: inverse_func
+  type: Callable
+  required: true
+  default: null
+- name: d_transform
+  type: Optional[Callable]
+  required: false
+  default: null
+- name: d_inverse
+  type: Optional[Callable]
+  required: false
+  default: null
+- name: breaks_func
+  type: Optional[Callable]
+  required: false
+  default: null
+- name: minor_breaks_func
+  type: Optional[Callable]
+  required: false
+  default: null
+- name: format_func
+  type: Optional[Callable]
+  required: false
+  default: null
+- name: domain
+  type: Tuple[float, float]
+  required: false
+  default: (-inf, inf)
+mutates: ''
+returns: None
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

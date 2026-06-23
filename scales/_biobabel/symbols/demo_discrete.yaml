@@ -1,0 +1,35 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.demo_discrete.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.demo_discrete
+import_path: scales.demo_discrete
+kind: function
+signature: 'demo_discrete(x: ''ArrayLike'', *, labels: ''object'' = None, **kwargs:
+  ''object'') -> ''None'''
+purpose: Show a discrete scale demo using matplotlib.
+description: Show a discrete scale demo using matplotlib.
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: labels
+  type: object
+  required: false
+  default: null
+- name: kwargs
+  type: object
+  required: true
+  default: null
+mutates: ''
+returns: None
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

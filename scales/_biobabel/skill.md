@@ -47,7 +47,7 @@ from scales import (
 
 # Axis transforms + breaks
 trans = log10_trans()
-ticks = breaks_log(n=5, base=10)([1, 1e6])     # → [1, 10, 100, ..., 1e6]
+ticks = breaks_log(n=5, base=10)([1, 1e4])     # → [1, 10, 100, 1000, 10000]
 strs  = label_percent(accuracy=1)([0.0, 0.5, 1.0])  # → ["0%", "50%", "100%"]
 
 # Palettes

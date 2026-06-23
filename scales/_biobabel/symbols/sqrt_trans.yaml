@@ -1,0 +1,30 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.sqrt_trans.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.sqrt_trans
+import_path: scales.sqrt_trans
+kind: function
+signature: sqrt_trans() -> 'Transform'
+purpose: Square-root transform (domain ``[0, inf]``).
+description: Square-root transform (domain ``[0, inf]``).
+parameters: []
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples:
+- "sqrt_trans().transform([0, 4, 9])  # → array([0., 2., 3.])"
+failure_fixes:
+- when: NaN appears for negative values on a sqrt axis.
+  suggest:
+  - scales.pseudo_log_trans
+  - scales.modulus_trans
+  explanation: sqrt_trans has domain [0, inf); negative input maps to NaN. For signed data use pseudo_log_trans or modulus_trans (signed Box-Cox), which handle negatives.
+related:
+- scales.log10_trans
+- scales.breaks_extended

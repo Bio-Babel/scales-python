@@ -1,0 +1,44 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.censor.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.censor
+import_path: scales.censor
+kind: function
+signature: 'censor(x: ''Union[np.ndarray, list, float]'', range: ''_RangeLike'' =
+  (0, 1), only_finite: ''bool'' = True) -> ''np.ndarray'''
+purpose: Replace values outside *range* with ``np.nan``.
+description: Replace values outside *range* with ``np.nan``.
+parameters:
+- name: x
+  type: Union[np.ndarray, list, float]
+  required: true
+  default: null
+- name: range
+  type: _RangeLike
+  required: false
+  default: (0, 1)
+- name: only_finite
+  type: bool
+  required: false
+  default: true
+mutates: ''
+returns: np.ndarray
+requires: []
+writes: []
+examples:
+- "censor([-1, 0.5, 2], (0, 1))  # → array([nan, 0.5, nan])  (out-of-range → NaN)"
+failure_fixes:
+- when: Data points silently disappear after setting scale limits.
+  suggest:
+  - scales.squish
+  - scales.oob_squish
+  explanation: censor (the default oob handler) replaces out-of-range values with NaN, which ggplot then drops without warning. To keep boundary points visible (clamped to the limit) pass oob=squish instead.
+related:
+- scales.squish
+- scales.oob_censor
+- scales.rescale

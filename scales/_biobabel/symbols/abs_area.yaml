@@ -1,0 +1,26 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.abs_area.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.abs_area
+import_path: scales.abs_area
+kind: function
+signature: 'abs_area(max_val: ''float'') -> ''ContinuousPalette'''
+purpose: Absolute-area palette.
+description: Absolute-area palette.
+parameters:
+- name: max_val
+  type: float
+  required: true
+  default: null
+mutates: ''
+returns: ContinuousPalette
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

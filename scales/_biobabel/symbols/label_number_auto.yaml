@@ -1,0 +1,22 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.label_number_auto.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.label_number_auto
+import_path: scales.label_number_auto
+kind: function
+signature: label_number_auto() -> 'Callable[[ArrayLike], list[str]]'
+purpose: Automatically choose between regular and scientific notation.
+description: Automatically choose between regular and scientific notation.
+parameters: []
+mutates: ''
+returns: Callable[[ArrayLike], list[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

@@ -1,0 +1,31 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.recycle_common.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.recycle_common
+import_path: scales.recycle_common
+kind: function
+signature: 'recycle_common(*args: ''ArrayLike'', size: ''Optional[int]'' = None) ->
+  ''list[np.ndarray]'''
+purpose: Recycle arrays to a common length.
+description: Recycle arrays to a common length.
+parameters:
+- name: args
+  type: ArrayLike
+  required: true
+  default: null
+- name: size
+  type: Optional[int]
+  required: false
+  default: null
+mutates: ''
+returns: list[np.ndarray]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

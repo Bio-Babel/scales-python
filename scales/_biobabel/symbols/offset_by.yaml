@@ -1,0 +1,31 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.offset_by.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.offset_by
+import_path: scales.offset_by
+kind: function
+signature: 'offset_by(x: ''Union[float, np.datetime64, Any]'', size: ''Union[float,
+  timedelta, np.timedelta64, Any]'') -> ''Any'''
+purpose: Offset a value by *size*.
+description: Offset a value by *size*.
+parameters:
+- name: x
+  type: Union[float, np.datetime64, Any]
+  required: true
+  default: null
+- name: size
+  type: Union[float, timedelta, np.timedelta64, Any]
+  required: true
+  default: null
+mutates: ''
+returns: Any
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

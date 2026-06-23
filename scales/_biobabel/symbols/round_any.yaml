@@ -1,0 +1,35 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.round_any.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.round_any
+import_path: scales.round_any
+kind: function
+signature: 'round_any(x: ''ArrayLike'', accuracy: ''float'', f: ''Callable'' = <function
+  round at 0x77b73134a870>) -> ''np.ndarray'''
+purpose: Round values to the nearest multiple of *accuracy*.
+description: Round values to the nearest multiple of *accuracy*.
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: accuracy
+  type: float
+  required: true
+  default: null
+- name: f
+  type: Callable
+  required: false
+  default: <function round at 0x77b73134a870>
+mutates: ''
+returns: np.ndarray
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

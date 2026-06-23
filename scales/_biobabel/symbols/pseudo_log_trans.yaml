@@ -1,0 +1,34 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.pseudo_log_trans.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.pseudo_log_trans
+import_path: scales.pseudo_log_trans
+kind: function
+signature: 'pseudo_log_trans(sigma: ''float'' = 1, base: ''float'' = 2.718281828459045)
+  -> ''Transform'''
+purpose: Pseudo-log transform (smooth transition around zero).
+description: Pseudo-log transform (smooth transition around zero).
+parameters:
+- name: sigma
+  type: float
+  required: false
+  default: 1
+- name: base
+  type: float
+  required: false
+  default: 2.718281828459045
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples:
+- "t = pseudo_log_trans(sigma=1); t.transform([-100, 0, 100])  # smooth, finite for negatives AND zero (unlike log10_trans)"
+related:
+- scales.log10_trans
+- scales.asinh_trans
+- scales.breaks_log

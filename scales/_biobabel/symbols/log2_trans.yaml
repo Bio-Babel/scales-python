@@ -1,0 +1,22 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.log2_trans.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.log2_trans
+import_path: scales.log2_trans
+kind: function
+signature: log2_trans() -> 'Transform'
+purpose: Base-2 logarithmic transform.
+description: Base-2 logarithmic transform.
+parameters: []
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

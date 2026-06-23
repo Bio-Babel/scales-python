@@ -1,0 +1,35 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.cbreaks.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.cbreaks
+import_path: scales.cbreaks
+kind: function
+signature: 'cbreaks(x: ''ArrayLike'', breaks_fun: ''Optional[Callable]'' = None, labels_fun:
+  ''Optional[Callable]'' = None) -> ''dict[str, Any]'''
+purpose: Comprehensive breaks (deprecated).
+description: Comprehensive breaks (deprecated).
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: breaks_fun
+  type: Optional[Callable]
+  required: false
+  default: null
+- name: labels_fun
+  type: Optional[Callable]
+  required: false
+  default: null
+mutates: ''
+returns: dict[str, Any]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

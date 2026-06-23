@@ -1,0 +1,30 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.transform_boxcox.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.transform_boxcox
+import_path: scales.transform_boxcox
+kind: function
+signature: 'transform_boxcox(p: ''float'', offset: ''float'' = 0) -> ''Transform'''
+purpose: Box--Cox power transform.
+description: Box--Cox power transform.
+parameters:
+- name: p
+  type: float
+  required: true
+  default: null
+- name: offset
+  type: float
+  required: false
+  default: 0
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

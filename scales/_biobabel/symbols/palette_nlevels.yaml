@@ -1,0 +1,26 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.palette_nlevels.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.palette_nlevels
+import_path: scales.palette_nlevels
+kind: function
+signature: 'palette_nlevels(pal: ''DiscretePalette'') -> ''Optional[int]'''
+purpose: Return the maximum number of levels for a discrete palette.
+description: Return the maximum number of levels for a discrete palette.
+parameters:
+- name: pal
+  type: DiscretePalette
+  required: true
+  default: null
+mutates: ''
+returns: Optional[int]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

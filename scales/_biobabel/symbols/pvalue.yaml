@@ -1,0 +1,43 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.pvalue.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.pvalue
+import_path: scales.pvalue
+kind: function
+signature: 'pvalue(x: ''ArrayLike'', accuracy: ''float'' = 0.001, decimal_mark: ''Optional[str]''
+  = None, prefix: ''Optional[list[str]]'' = None, add_p: ''bool'' = False) -> ''list[str]'''
+purpose: Format p-values.
+description: Format p-values.
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: accuracy
+  type: float
+  required: false
+  default: 0.001
+- name: decimal_mark
+  type: Optional[str]
+  required: false
+  default: null
+- name: prefix
+  type: Optional[list[str]]
+  required: false
+  default: null
+- name: add_p
+  type: bool
+  required: false
+  default: false
+mutates: ''
+returns: list[str]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

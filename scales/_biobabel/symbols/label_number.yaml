@@ -1,0 +1,71 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.label_number.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.label_number
+import_path: scales.label_number
+kind: function
+signature: 'label_number(accuracy: ''Optional[float]'' = None, scale: ''float'' =
+  1, prefix: ''str'' = '''', suffix: ''str'' = '''', big_mark: ''Optional[str]'' =
+  None, decimal_mark: ''Optional[str]'' = None, style_positive: ''str'' = ''none'',
+  style_negative: ''str'' = ''hyphen'', scale_cut: ''Optional[list[tuple[float, str]]]''
+  = None, trim: ''bool'' = True) -> ''Callable[[ArrayLike], list[str]]'''
+purpose: Label numbers with flexible formatting.
+description: Label numbers with flexible formatting.
+parameters:
+- name: accuracy
+  type: Optional[float]
+  required: false
+  default: null
+- name: scale
+  type: float
+  required: false
+  default: 1
+- name: prefix
+  type: str
+  required: false
+  default: ''
+- name: suffix
+  type: str
+  required: false
+  default: ''
+- name: big_mark
+  type: Optional[str]
+  required: false
+  default: null
+- name: decimal_mark
+  type: Optional[str]
+  required: false
+  default: null
+- name: style_positive
+  type: str
+  required: false
+  default: none
+- name: style_negative
+  type: str
+  required: false
+  default: hyphen
+- name: scale_cut
+  type: Optional[list[tuple[float, str]]]
+  required: false
+  default: null
+- name: trim
+  type: bool
+  required: false
+  default: true
+mutates: ''
+returns: Callable[[ArrayLike], list[str]]
+requires: []
+writes: []
+examples:
+- "label_number()([1234.5])  # → ['1234']  (factory → callable → strings)"
+- "label_number(big_mark=',')([1234567])  # → ['1,234,567']"
+- "label_number(scale_cut=cut_si(''))([1e6])  # → ['1 M']  (SI prefix)"
+related:
+- scales.label_comma
+- scales.label_percent
+- scales.cut_si

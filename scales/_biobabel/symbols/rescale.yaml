@@ -1,0 +1,43 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.rescale.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.rescale
+import_path: scales.rescale
+kind: function
+signature: 'rescale(x: ''Union[np.ndarray, list, float]'', to: ''_RangeLike'' = (0,
+  1), from_range: ''Optional[_RangeLike]'' = None, **kwargs: ''Any'') -> ''np.ndarray'''
+purpose: Linearly rescale a numeric vector to a new range.
+description: Linearly rescale a numeric vector to a new range.
+parameters:
+- name: x
+  type: Union[np.ndarray, list, float]
+  required: true
+  default: null
+- name: to
+  type: _RangeLike
+  required: false
+  default: (0, 1)
+- name: from_range
+  type: Optional[_RangeLike]
+  required: false
+  default: null
+- name: kwargs
+  type: Any
+  required: true
+  default: null
+mutates: ''
+returns: np.ndarray
+requires: []
+writes: []
+examples:
+- "rescale([0, 5, 10])  # → array([0. , 0.5, 1. ])  (called directly on data; from_range inferred)"
+- "rescale([0, 5, 10], to=(0, 100), from_range=(0, 20))  # → array([0., 25., 50.])"
+related:
+- scales.rescale_mid
+- scales.censor
+- scales.squish

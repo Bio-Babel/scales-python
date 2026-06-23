@@ -1,0 +1,44 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.rescale_mid.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.rescale_mid
+import_path: scales.rescale_mid
+kind: function
+signature: 'rescale_mid(x: ''Union[np.ndarray, list, float]'', to: ''_RangeLike''
+  = (0, 1), from_range: ''Optional[_RangeLike]'' = None, mid: ''float'' = 0, **kwargs:
+  ''Any'') -> ''np.ndarray'''
+purpose: Rescale numeric vector to new range with a specified midpoint.
+description: Rescale numeric vector to new range with a specified midpoint.
+parameters:
+- name: x
+  type: Union[np.ndarray, list, float]
+  required: true
+  default: null
+- name: to
+  type: _RangeLike
+  required: false
+  default: (0, 1)
+- name: from_range
+  type: Optional[_RangeLike]
+  required: false
+  default: null
+- name: mid
+  type: float
+  required: false
+  default: 0
+- name: kwargs
+  type: Any
+  required: true
+  default: null
+mutates: ''
+returns: np.ndarray
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

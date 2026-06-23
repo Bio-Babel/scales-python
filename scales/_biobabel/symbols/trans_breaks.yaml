@@ -1,0 +1,35 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.trans_breaks.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.trans_breaks
+import_path: scales.trans_breaks
+kind: function
+signature: 'trans_breaks(trans: ''Union[str, Transform]'', n: ''int'' = 5, offset:
+  ''float'' = 0) -> ''Callable'''
+purpose: Generate breaks in transformed space then map back.
+description: Generate breaks in transformed space then map back.
+parameters:
+- name: trans
+  type: Union[str, Transform]
+  required: true
+  default: null
+- name: n
+  type: int
+  required: false
+  default: 5
+- name: offset
+  type: float
+  required: false
+  default: 0
+mutates: ''
+returns: Callable
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

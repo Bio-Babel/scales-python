@@ -1,0 +1,57 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.col_bin.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.col_bin
+import_path: scales.col_bin
+kind: function
+signature: 'col_bin(palette: ''Union[str, Sequence[str]]'', domain: ''Optional[Tuple[float,
+  float]]'' = None, bins: ''Union[int, Sequence[float]]'' = 7, pretty: ''bool'' =
+  True, na_color: ''str'' = ''#808080'', alpha: ''bool'' = False, reverse: ''bool''
+  = False, right: ''bool'' = False) -> ''Callable[[ArrayLike], List[str]]'''
+purpose: Map continuous data to colours through binning.
+description: Map continuous data to colours through binning.
+parameters:
+- name: palette
+  type: Union[str, Sequence[str]]
+  required: true
+  default: null
+- name: domain
+  type: Optional[Tuple[float, float]]
+  required: false
+  default: null
+- name: bins
+  type: Union[int, Sequence[float]]
+  required: false
+  default: 7
+- name: pretty
+  type: bool
+  required: false
+  default: true
+- name: na_color
+  type: str
+  required: false
+  default: '#808080'
+- name: alpha
+  type: bool
+  required: false
+  default: false
+- name: reverse
+  type: bool
+  required: false
+  default: false
+- name: right
+  type: bool
+  required: false
+  default: false
+mutates: ''
+returns: Callable[[ArrayLike], List[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

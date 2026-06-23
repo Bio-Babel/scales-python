@@ -1,0 +1,45 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.cscale.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.cscale
+import_path: scales.cscale
+kind: function
+signature: 'cscale(x: ''ArrayLike'', palette: ''Callable[[np.ndarray], np.ndarray]'',
+  na_value: ''Any'' = nan, trans: ''Optional[Union[Transform, str]]'' = None, oob:
+  ''Callable[[np.ndarray], np.ndarray]'' = <function censor at 0x77b6908e6020>) ->
+  ''np.ndarray'''
+purpose: Apply a continuous scale to numeric data.
+description: Apply a continuous scale to numeric data.
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: palette
+  type: Callable[[np.ndarray], np.ndarray]
+  required: true
+  default: null
+- name: na_value
+  type: Any
+  required: false
+  default: .nan
+- name: trans
+  type: Optional[Union[Transform, str]]
+  required: false
+  default: null
+- name: oob
+  type: Callable[[np.ndarray], np.ndarray]
+  required: false
+  default: <function censor at 0x77b6908e6020>
+mutates: ''
+returns: np.ndarray
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

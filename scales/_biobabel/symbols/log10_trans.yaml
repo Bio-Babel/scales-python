@@ -1,0 +1,31 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.log10_trans.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.log10_trans
+import_path: scales.log10_trans
+kind: function
+signature: log10_trans() -> 'Transform'
+purpose: Base-10 logarithmic transform.
+description: Base-10 logarithmic transform.
+parameters: []
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples:
+- "t = log10_trans(); t.transform([1, 10, 100])  # → array([0., 1., 2.]); t.inverse([0, 1, 2]) → [1, 10, 100]"
+failure_fixes:
+- when: Data points silently vanish on a log10 axis with no error or warning.
+  suggest:
+  - scales.pseudo_log_trans
+  - scales.asinh_trans
+  explanation: log10_trans has domain (0, inf); zeros and negatives map to NaN, which the scale's default oob_censor then drops silently. For data spanning zero or negatives (e.g. log-fold-changes) use pseudo_log_trans(sigma=1) or asinh_trans, which are defined on the whole real line.
+related:
+- scales.breaks_log
+- scales.label_log
+- scales.pseudo_log_trans

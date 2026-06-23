@@ -1,0 +1,26 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.palette_na_safe.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.palette_na_safe
+import_path: scales.palette_na_safe
+kind: function
+signature: 'palette_na_safe(pal: ''ContinuousPalette'') -> ''Optional[bool]'''
+purpose: Return whether a continuous palette handles ``NaN`` safely.
+description: Return whether a continuous palette handles ``NaN`` safely.
+parameters:
+- name: pal
+  type: ContinuousPalette
+  required: true
+  default: null
+mutates: ''
+returns: Optional[bool]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

@@ -1,0 +1,26 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.transform_exp.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.transform_exp
+import_path: scales.transform_exp
+kind: function
+signature: 'transform_exp(base: ''float'' = 2.718281828459045) -> ''Transform'''
+purpose: Exponential transform (inverse of :func:`transform_log`).
+description: Exponential transform (inverse of :func:`transform_log`).
+parameters:
+- name: base
+  type: float
+  required: false
+  default: 2.718281828459045
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

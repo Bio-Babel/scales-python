@@ -1,0 +1,62 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.label_currency.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.label_currency
+import_path: scales.label_currency
+kind: function
+signature: 'label_currency(accuracy: ''Optional[float]'' = None, scale: ''float''
+  = 1, prefix: ''Optional[str]'' = None, suffix: ''Optional[str]'' = None, big_mark:
+  ''Optional[str]'' = None, decimal_mark: ''Optional[str]'' = None, trim: ''bool''
+  = True, largest_with_fractional: ''float'' = 100000, **kwargs: ''Any'') -> ''Callable[[ArrayLike],
+  list[str]]'''
+purpose: Label currency values.
+description: Label currency values.
+parameters:
+- name: accuracy
+  type: Optional[float]
+  required: false
+  default: null
+- name: scale
+  type: float
+  required: false
+  default: 1
+- name: prefix
+  type: Optional[str]
+  required: false
+  default: null
+- name: suffix
+  type: Optional[str]
+  required: false
+  default: null
+- name: big_mark
+  type: Optional[str]
+  required: false
+  default: null
+- name: decimal_mark
+  type: Optional[str]
+  required: false
+  default: null
+- name: trim
+  type: bool
+  required: false
+  default: true
+- name: largest_with_fractional
+  type: float
+  required: false
+  default: 100000
+- name: kwargs
+  type: Any
+  required: true
+  default: null
+mutates: ''
+returns: Callable[[ArrayLike], list[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

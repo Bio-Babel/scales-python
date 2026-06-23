@@ -1,0 +1,46 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.label_date_short.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.label_date_short
+import_path: scales.label_date_short
+kind: function
+signature: 'label_date_short(format: ''Optional[Sequence[Optional[str]]]'' = None,
+  sep: ''str'' = ''\n'', leading: ''str'' = ''0'', tz: ''str'' = ''UTC'', locale:
+  ''Optional[str]'' = None) -> ''Callable[[ArrayLike], list[str]]'''
+purpose: Label dates compactly, showing each component only when it changes.
+description: Label dates compactly, showing each component only when it changes.
+parameters:
+- name: format
+  type: Optional[Sequence[Optional[str]]]
+  required: false
+  default: null
+- name: sep
+  type: str
+  required: false
+  default: '
+
+    '
+- name: leading
+  type: str
+  required: false
+  default: '0'
+- name: tz
+  type: str
+  required: false
+  default: UTC
+- name: locale
+  type: Optional[str]
+  required: false
+  default: null
+mutates: ''
+returns: Callable[[ArrayLike], list[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

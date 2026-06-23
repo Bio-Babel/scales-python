@@ -1,0 +1,30 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.pal_grey.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.pal_grey
+import_path: scales.pal_grey
+kind: function
+signature: 'pal_grey(start: ''float'' = 0.2, end: ''float'' = 0.8) -> ''DiscretePalette'''
+purpose: Grey palette.
+description: Grey palette.
+parameters:
+- name: start
+  type: float
+  required: false
+  default: 0.2
+- name: end
+  type: float
+  required: false
+  default: 0.8
+mutates: ''
+returns: DiscretePalette
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

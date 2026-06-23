@@ -1,0 +1,31 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.zero_range.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.zero_range
+import_path: scales.zero_range
+kind: function
+signature: 'zero_range(x: ''ArrayLike'', tol: ''float'' = 2.220446049250313e-13) ->
+  ''bool'''
+purpose: Check if a range has (effectively) zero extent.
+description: Check if a range has (effectively) zero extent.
+parameters:
+- name: x
+  type: ArrayLike
+  required: true
+  default: null
+- name: tol
+  type: float
+  required: false
+  default: 2.220446049250313e-13
+mutates: ''
+returns: bool
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

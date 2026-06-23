@@ -1,0 +1,44 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.col_numeric.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.col_numeric
+import_path: scales.col_numeric
+kind: function
+signature: 'col_numeric(palette: ''Union[str, Sequence[str]]'', domain: ''Optional[Tuple[float,
+  float]]'' = None, na_color: ''str'' = ''#808080'', alpha: ''bool'' = False, reverse:
+  ''bool'' = False) -> ''Callable[[ArrayLike], List[str]]'''
+purpose: Map continuous numeric values to colours via linear interpolation.
+description: Map continuous numeric values to colours via linear interpolation.
+parameters:
+- name: palette
+  type: Union[str, Sequence[str]]
+  required: true
+  default: null
+- name: domain
+  type: Optional[Tuple[float, float]]
+  required: false
+  default: null
+- name: na_color
+  type: str
+  required: false
+  default: '#808080'
+- name: alpha
+  type: bool
+  required: false
+  default: false
+- name: reverse
+  type: bool
+  required: false
+  default: false
+mutates: ''
+returns: Callable[[ArrayLike], List[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

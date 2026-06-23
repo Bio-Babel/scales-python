@@ -1,0 +1,27 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.compose_label.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.compose_label
+import_path: scales.compose_label
+kind: function
+signature: 'compose_label(*formatters: ''Callable[[ArrayLike], list[str]]'') -> ''Callable[[ArrayLike],
+  list[str]]'''
+purpose: Compose multiple label formatters, applying them in sequence.
+description: Compose multiple label formatters, applying them in sequence.
+parameters:
+- name: formatters
+  type: Callable[[ArrayLike], list[str]]
+  required: true
+  default: null
+mutates: ''
+returns: Callable[[ArrayLike], list[str]]
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

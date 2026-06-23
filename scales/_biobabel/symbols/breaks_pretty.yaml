@@ -1,0 +1,29 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.breaks_pretty.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.breaks_pretty
+import_path: scales.breaks_pretty
+kind: function
+signature: 'breaks_pretty(n: ''int'' = 5) -> ''Callable[[ArrayLike, Optional[int]],
+  np.ndarray]'''
+purpose: Create a break function using R's ``pretty()`` algorithm.
+description: Create a break function using R's ``pretty()`` algorithm.
+parameters:
+- name: n
+  type: int
+  required: false
+  default: 5
+mutates: ''
+returns: Callable[[ArrayLike, Optional[int]], np.ndarray]
+requires: []
+writes: []
+examples:
+- "breaks_pretty(n=5)([0, 10])  # → array([0., 2., 4., 6., 8., 10.])  (R's pretty())"
+related:
+- scales.breaks_extended
+- scales.breaks_width

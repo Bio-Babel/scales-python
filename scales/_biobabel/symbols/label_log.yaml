@@ -1,0 +1,38 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.label_log.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.label_log
+import_path: scales.label_log
+kind: function
+signature: 'label_log(base: ''float'' = 10, digits: ''int'' = 3, signed: ''Optional[bool]''
+  = None) -> ''Callable[[ArrayLike], list[str]]'''
+purpose: Label values on a log scale (e.g. ``"10^3"``).
+description: Label values on a log scale (e.g. ``"10^3"``).
+parameters:
+- name: base
+  type: float
+  required: false
+  default: 10
+- name: digits
+  type: int
+  required: false
+  default: 3
+- name: signed
+  type: Optional[bool]
+  required: false
+  default: null
+mutates: ''
+returns: Callable[[ArrayLike], list[str]]
+requires: []
+writes: []
+examples:
+- "label_log(base=10)([1, 100, 1000])  # → ['10^0', '10^2', '10^3']  (note: 1 → '10^0', not '1')"
+related:
+- scales.log10_trans
+- scales.breaks_log
+- scales.format_log

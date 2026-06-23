@@ -1,0 +1,30 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.transform_modulus.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.transform_modulus
+import_path: scales.transform_modulus
+kind: function
+signature: 'transform_modulus(p: ''float'', offset: ''float'' = 1) -> ''Transform'''
+purpose: Modulus transform (sign-preserving Box--Cox).
+description: Modulus transform (sign-preserving Box--Cox).
+parameters:
+- name: p
+  type: float
+  required: true
+  default: null
+- name: offset
+  type: float
+  required: false
+  default: 1
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

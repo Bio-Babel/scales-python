@@ -1,0 +1,39 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.breaks_extended.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.breaks_extended
+import_path: scales.breaks_extended
+kind: function
+signature: 'breaks_extended(n: ''int'' = 5, *, Q: ''Sequence[float]'' = (1, 5, 2,
+  2.5, 4, 3), only_loose: ''bool'' = False) -> ''Callable[[ArrayLike, Optional[int]],
+  np.ndarray]'''
+purpose: Create a break function using Wilkinson's extended algorithm.
+description: Create a break function using Wilkinson's extended algorithm.
+parameters:
+- name: n
+  type: int
+  required: false
+  default: 5
+- name: Q
+  type: Sequence[float]
+  required: false
+  default: (1, 5, 2, 2.5, 4, 3)
+- name: only_loose
+  type: bool
+  required: false
+  default: false
+mutates: ''
+returns: Callable[[ArrayLike, Optional[int]], np.ndarray]
+requires: []
+writes: []
+examples:
+- "breaks_extended(n=5)([0, 100])  # callable → ~5 'nice' round breaks spanning 0..100 (Wilkinson extended)"
+related:
+- scales.breaks_pretty
+- scales.breaks_width
+- scales.breaks_log

@@ -11,33 +11,7 @@ r_package:
   repo: https://github.com/r-lib/scales
   version_or_commit: 1.4.0.9000
   fidelity: full
-capabilities:
-- axis-transforms
-- tick-breaks
-- axis-label-formatters
-- color-palettes
-- continuous-discrete-ranges
-- color-manipulation
-domain_tags:
-- visualization
-- low-level-graphics
-task_tags:
-- log-axis
-- percent-axis
-- dollar-axis
-- viridis-palette
-- colorbrewer-palette
-- pretty-tick-marks
-- custom-tick-marks
 foundation: []
-triggers:
-- log axis
-- format axis labels as percent / dollar / scientific
-- viridis colors
-- colorbrewer palette
-- axis tick mark positions
-not_when:
-- user already uses matplotlib's ticker and is happy with it
 templates:
 - id: scales.log_axis_with_breaks
   path: templates/log_axis.py

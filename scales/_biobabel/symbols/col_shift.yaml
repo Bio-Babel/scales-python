@@ -1,0 +1,30 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.col_shift.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.col_shift
+import_path: scales.col_shift
+kind: function
+signature: 'col_shift(col, amount: ''float'' = 10)'
+purpose: Shift the hue of a colour.
+description: Shift the hue of a colour.
+parameters:
+- name: col
+  type: ''
+  required: true
+  default: null
+- name: amount
+  type: float
+  required: false
+  default: 10
+mutates: ''
+returns: ''
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []

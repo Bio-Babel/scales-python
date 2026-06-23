@@ -1,0 +1,22 @@
+# AUTO-GENERATED tier-1 API surface — signature/params/docstring introspected
+# from the installed package (fact, not claim). Regenerate after a version bump:
+#   python tools/gen_tier1_symbols.py <import_name>
+# Hand-curated tier-2 fields (failure_fixes / anti-patterns / produces) are added
+# directly in this file by humans and are NOT overwritten on regeneration unless
+# you delete the file first.
+# Auto-generated stub for scales.transform_hms.
+# Review and fill: purpose, mutates, requires, writes, examples, failure_fixes, related.
+id: scales.transform_hms
+import_path: scales.transform_hms
+kind: function
+signature: transform_hms() -> 'Transform'
+purpose: Transform clock-time values to/from numeric seconds.
+description: Transform clock-time values to/from numeric seconds.
+parameters: []
+mutates: ''
+returns: Transform
+requires: []
+writes: []
+examples: []
+failure_fixes: []
+related: []
