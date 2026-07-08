@@ -135,8 +135,9 @@ class TestPrettyInternal:
         assert len(result) == 2
 
     def test_zero_range(self):
+        # R: pretty(c(5, 5), 5) expands the degenerate range to c(0, 5)
         result = _pretty(5, 5, n=5)
-        assert len(result) == 1
+        assert list(result) == [0.0, 5.0]
 
     def test_small_cell(self):
         # Test when cell < 20*1e-07*max(abs(dmin), abs(dmax))
